@@ -10,6 +10,8 @@ return [
     |--------------------------------------------------------------------------
     */
 
+    'laraberg_version' => '10.6.0',
+
     'use_package_routes' => true,
 
     'middlewares' => ['web', 'auth'],
@@ -20,5 +22,5 @@ return [
         "block" => Block::class,
         "content" => Content::class,
     ],
-    
+
 ];

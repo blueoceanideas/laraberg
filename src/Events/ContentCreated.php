@@ -13,7 +13,7 @@ class ContentCreated
 
     /**
      * Create a new event instance
-     * 
+     *
      * @param VanOns\Laraberg\Models\Content $content
      * @return void
      */
@@ -22,4 +22,3 @@ class ContentCreated
         $this->content = $content;
     }
 }
-

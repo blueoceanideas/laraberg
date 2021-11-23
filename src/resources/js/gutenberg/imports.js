@@ -40,6 +40,7 @@ import * as priorityQueue from 'gutenberg/packages/priority-queue'
 import * as serverSideRender from 'gutenberg/packages/server-side-render'
 import * as dataControls from 'gutenberg/packages/data-controls'
 import * as mediaUtils from 'gutenberg/packages/media-utils'
+import * as interfaceSkeleton from 'gutenberg/packages/interface'
 
 const imports = {
   a11y,
@@ -69,6 +70,7 @@ const imports = {
   hooks,
   htmlEntities,
   i18n,
+  interfaceSkeleton,
   isShallowEqual,
   keycodes,
   // listReusableBlocks,

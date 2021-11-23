@@ -19,6 +19,7 @@ export default function configureEditor (options) {
   setupSubmit(editorSettings.target)
   disableWPBlocks()
   removeElements()
+  updateContentWrapper()
   if (options.maxHeight) { setMaxHeight(options.maxHeight) }
   if (options.minHeight) { setMinHeight(options.minHeight) }
   if (options.height) { setHeight(options.height) }
@@ -154,4 +155,13 @@ function removeElements () {
   elementRendered('.editor-post-trash', element => { element.remove() })
 
   elementRendered('.editor-post-saved-state', element => { element.style.display = 'none' })
+}
+
+/**
+ * The interface content wrapper needs to have .markup added so that it styles "base" markup elements correctly.
+ */
+function updateContentWrapper () {
+    elementRendered('.interface-interface-skeleton__content', element => {
+        element.classList.add('markup');
+    })
 }

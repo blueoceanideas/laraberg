@@ -14,7 +14,7 @@ class ContentRendered
 
     /**
      * Create a new event instance
-     * 
+     *
      * @param VanOns\Laraberg\Models\Content $content
      * @return void
      */
@@ -23,4 +23,3 @@ class ContentRendered
         $this->content = $content;
     }
 }
-

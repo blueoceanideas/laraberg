@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateBlocksContentsTables extends Migration
 {
@@ -11,9 +11,9 @@ class CreateBlocksContentsTables extends Migration
      *
      * @return void
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('lb_blocks', function (Blueprint $table) {
+        Schema::create('lb_blocks', function (Blueprint $table): void {
             $table->increments('id');
             $table->string('raw_title')->nullable();
             $table->text('raw_content')->nullable();
@@ -24,7 +24,7 @@ class CreateBlocksContentsTables extends Migration
             $table->timestamps();
         });
 
-        Schema::create('lb_contents', function (Blueprint $table) {
+        Schema::create('lb_contents', function (Blueprint $table): void {
             $table->increments('id');
             $table->text('raw_content')->nullable();
             $table->text('rendered_content')->nullable();
@@ -39,10 +39,9 @@ class CreateBlocksContentsTables extends Migration
      *
      * @return void
      */
-    public function down()
+    public function down(): void
     {
         Schema::drop('lb_blocks');
         Schema::drop('lb_contents');
     }
 }
-

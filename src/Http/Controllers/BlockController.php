@@ -15,6 +15,7 @@ class BlockController extends ApplicationController
     public function index()
     {
         $blocks = $this->blockModel->all();
+
         return $this->ok($blocks);
     }
 
@@ -34,7 +35,7 @@ class BlockController extends ApplicationController
     {
         $block = $this->blockModel->find($id);
 
-        if (!$block) {
+        if (! $block) {
             return $this->notFound();
         }
 
@@ -45,7 +46,7 @@ class BlockController extends ApplicationController
     {
         $block = $this->blockModel->find($id);
 
-        if (!$block) {
+        if (! $block) {
             return $this->notFound();
         }
 
@@ -54,6 +55,7 @@ class BlockController extends ApplicationController
         $block->setContent($request->content);
         $block->updateSlug();
         $block->save();
+
         return $this->ok($block);
     }
 

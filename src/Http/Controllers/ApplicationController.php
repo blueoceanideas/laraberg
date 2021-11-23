@@ -21,4 +21,3 @@ class ApplicationController extends BaseController
         return response($data, $code)->header('Content-Type', 'application/json');
     }
 }
-

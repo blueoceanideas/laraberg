@@ -2,8 +2,6 @@
 
 namespace VanOns\Laraberg\Models;
 
-use VanOns\Laraberg\Models\Content;
-use VanOns\Laraberg\Events\ContentCreated;
 use VanOns\Laraberg\Events\ContentUpdated;
 
 trait Gutenbergable
@@ -11,10 +9,10 @@ trait Gutenbergable
     /**
      * Delete content when model gets deleted
      */
-    protected static function bootGutenbergable()
+    protected static function bootGutenbergable(): void
     {
         // Persisting laraberg contents only when the current model has been updated
-        self::saved(function ($model) {
+        self::saved(function ($model): void {
             if ($content = $model->larabergContent) {
                 $content->contentable()
                         ->associate($model)->save();
@@ -22,7 +20,7 @@ trait Gutenbergable
         });
 
         // Permanently deleting laravel content when this model has been deleted
-        self::deleted(function ($model) {
+        self::deleted(function ($model): void {
             $model->larabergContent()->delete();
         });
     }
@@ -52,7 +50,7 @@ trait Gutenbergable
      *
      * @param $content
      */
-    public function setLbContentAttribute($content)
+    public function setLbContentAttribute($content): void
     {
         if (! $this->larabergContent) {
             $this->setRelation('larabergContent', new Content);
@@ -102,7 +100,7 @@ trait Gutenbergable
      * @param String $save - Calls .save() on the Content object if true
      * @deprecated
      */
-    public function setContent($content, $save = false)
+    public function setContent($content, $save = false): void
     {
         if (! $this->larabergContent) {
             $this->createContent();

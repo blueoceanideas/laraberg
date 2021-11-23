@@ -1,4 +1,4 @@
-// Gutenberg imports
+/* Gutenberg imports */
 @import "~gutenberg/packages/components/build-style/style.css";
 @import "~gutenberg/packages/block-editor/build-style/style.css";
 @import "~gutenberg/packages/nux/build-style/style.css";
@@ -9,21 +9,18 @@
 @import "~gutenberg/packages/edit-post/build-style/style.css";
 @import "~gutenberg/packages/format-library/build-style/style.css";
 @import "~gutenberg/packages/list-reusable-blocks/build-style/style.css";
+@import "~gutenberg/packages/interface/build-style/style.css";
+
+/* Sails custom styles */
+@import "sails_gutenberg";
 
 @import "./wordpress-overrides.scss";
 
 .laraberg__editor {
-  width: auto;
-  overflow: hidden;
-  border: 1px solid #e2e4e7;
-  box-sizing: border-box;
-  min-height: 400px;
-  height: auto;
   position: relative;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
+  width: 100%;
+  border: none;
+  box-sizing: border-box;
 
   *:focus {
     outline: none;
@@ -127,14 +124,14 @@
     margin-left: 1rem;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin-bottom: 24px;
-  }
+  //h1,
+  //h2,
+  //h3,
+  //h4,
+  //h5,
+  //h6 {
+  //  margin-bottom: 24px;
+  //}
 }
 
 .wp-embed-responsive .wp-block-embed.wp-embed-aspect-1-1 .wp-block-embed__wrapper iframe,
@@ -172,3 +169,4 @@
 .wp-block-html .block-editor-plain-text {
   width: 100%;
 }
+

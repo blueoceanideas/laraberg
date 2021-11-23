@@ -13,11 +13,11 @@ class Block extends Model
     protected $table = 'lb_blocks';
     protected $appends = ['content', 'title'];
     protected $hidden = [
-        'created_at', 
+        'created_at',
         'raw_content',
         'raw_title',
         'rendered_content',
-        'updated_at'
+        'updated_at',
     ];
 
     // TODO: Only here to make migration run, should be cleaned up on release
@@ -26,7 +26,7 @@ class Block extends Model
     /**
      * Updates slug according to title
      */
-    public function updateSlug()
+    public function updateSlug(): void
     {
         $this->slug = SlugHelper::slugify($this->raw_title);
     }
@@ -47,6 +47,7 @@ class Block extends Model
     public function renderRaw()
     {
         $this->rendered_content = EmbedHelper::renderEmbeds($this->raw_content);
+
         return $this->rendered_content;
     }
 
@@ -54,7 +55,7 @@ class Block extends Model
      * Sets the raw content and performs some initial rendering
      * @param String $html
      */
-    public function setContent($content)
+    public function setContent($content): void
     {
         $this->raw_content = $content;
         $this->renderRaw();
@@ -70,7 +71,7 @@ class Block extends Model
             'raw' => $this->raw_content,
             'rendered' => $this->rendered_content,
             'protected' => false,
-            'block_version' => 1
+            'block_version' => 1,
         ];
     }
 
@@ -85,4 +86,3 @@ class Block extends Model
         ];
     }
 }
-

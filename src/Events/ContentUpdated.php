@@ -14,7 +14,7 @@ class ContentUpdated
 
     /**
      * Create a new event instance
-     * 
+     *
      * @param VanOns\Laraberg\Models\Content $content
      * @return void
      */

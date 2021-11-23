@@ -17,6 +17,7 @@ class BlockHelper
         $result = preg_replace_callback($regex, function ($matches) {
             return self::renderBlock($matches[1]);
         }, $html);
+
         return $result;
     }
 

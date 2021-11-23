@@ -24,7 +24,6 @@ export default function (config) {
     }
 
     onSelect = (url, path) => {
-      this.props.value = null
       const { multiple, onSelect } = this.props
       const media = {
         url: url,

@@ -14,6 +14,7 @@ class OEmbedController extends ApplicationController
         if ($data['html'] == null) {
             return $this->notFound();
         }
+
         return $this->ok($data);
     }
 }

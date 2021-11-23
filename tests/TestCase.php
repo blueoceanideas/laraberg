@@ -2,9 +2,9 @@
 
 namespace VanOns\Laraberg\Test;
 
+use Orchestra\Testbench\Testcase as OrchestraTestCase;
 use VanOns\Laraberg\LarabergFacade;
 use VanOns\Laraberg\LarabergServiceProvider;
-use Orchestra\Testbench\Testcase as OrchestraTestCase;
 
 class TestCase extends OrchestraTestCase
 {
@@ -17,6 +17,7 @@ class TestCase extends OrchestraTestCase
     {
         return [LarabergServiceProvider::class];
     }
+
     /**
      * Load package alias
      * @param  \Illuminate\Foundation\Application $app
@@ -29,4 +30,3 @@ class TestCase extends OrchestraTestCase
         ];
     }
 }
-

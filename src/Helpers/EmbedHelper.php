@@ -6,7 +6,6 @@ use Embed\Embed;
 
 class EmbedHelper
 {
-
     /**
      * Renders any embeds in the HTML
      * @param String $html
@@ -22,6 +21,7 @@ class EmbedHelper
             // Replace URL with OEmbed HTML
             return preg_replace("/>\s*?$url\s*?</", ">$embed->code<", $matches[0]);
         }, $html);
+
         return $result;
     }
 
@@ -30,7 +30,8 @@ class EmbedHelper
      * @param Embed $embed
      * @return array
      */
-    public static function serialize($embed) {
+    public static function serialize($embed)
+    {
         return [
             'url' => $embed->url,
             'author_name' => $embed->authorName,
@@ -40,7 +41,7 @@ class EmbedHelper
             'height' => $embed->height,
             'type' => $embed->type,
             'provider_name' => $embed->providerName,
-            'provider_url' => $embed->providerUrl
+            'provider_url' => $embed->providerUrl,
         ];
     }
 
@@ -53,4 +54,3 @@ class EmbedHelper
         return Embed::create($url);
     }
 }
-

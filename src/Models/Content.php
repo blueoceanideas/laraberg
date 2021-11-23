@@ -3,27 +3,25 @@
 namespace VanOns\Laraberg\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use mysql_xdevapi\Exception;
-use VanOns\Laraberg\Helpers\EmbedHelper;
-use VanOns\Laraberg\Helpers\BlockHelper;
 use VanOns\Laraberg\Events\ContentCreated;
-use VanOns\Laraberg\Events\ContentUpdated;
 use VanOns\Laraberg\Events\ContentRendered;
+use VanOns\Laraberg\Events\ContentUpdated;
+use VanOns\Laraberg\Helpers\BlockHelper;
+use VanOns\Laraberg\Helpers\EmbedHelper;
 
 class Content extends Model
 {
-
     protected $table = 'lb_contents';
 
-    public static function boot()
+    public static function boot(): void
     {
         parent::boot();
 
-        static::created(function ($model) {
+        static::created(function ($model): void {
             event(new ContentCreated($model));
         });
 
-        static::updated(function ($model) {
+        static::updated(function ($model): void {
             event(new ContentUpdated($model));
         });
     }
@@ -43,14 +41,10 @@ class Content extends Model
 
         event(new ContentRendered($this));
 
-        return "<div class='gutenberg__content wp-embed-responsive'>$html</div>";
+        return "<div class='gutenberg__content wp-embed-responsive markup'>$html</div>";
     }
 
-    /**
-     * Sets the raw content and performs some initial rendering
-     * @param String $html
-     */
-    public function setContent($html)
+    public function setContent(string $html): void
     {
         $this->raw_content = $this->fixEmptyImages($html);
         $this->renderRaw();
@@ -59,7 +53,7 @@ class Content extends Model
     /**
      * Renders the HTML of the content object
      */
-    public function renderRaw()
+    public function renderRaw(): string
     {
         $this->rendered_content = EmbedHelper::renderEmbeds($this->raw_content);
 
@@ -71,12 +65,15 @@ class Content extends Model
     /**
      * TODO: Remove this temporary fix for Image block crashing when no image is selected
      */
-    private function fixEmptyImages($html) {
+    private function fixEmptyImages($html)
+    {
         $regex = '/<img(.*)\/>/';
+
         return preg_replace_callback($regex, function ($matches) {
             if (isset($matches[1]) && strpos($matches[1], 'src="') === false) {
                 return str_replace('<img ', '<img src="/vendor/laraberg/img/placeholder.jpg" ', $matches[0]);
             }
+
             return $matches[0];
         }, $html);
     }
