@@ -35,6 +35,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm link gutenberg
+    - name: List Files
+      run: |
+        ls
     - run: npm run build
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v3
