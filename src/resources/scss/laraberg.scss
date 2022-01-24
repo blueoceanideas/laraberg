@@ -1,15 +1,15 @@
 /* Gutenberg imports */
-@import "~gutenberg/packages/components/build-style/style.css";
-@import "~gutenberg/packages/block-editor/build-style/style.css";
-@import "~gutenberg/packages/nux/build-style/style.css";
-@import "~gutenberg/packages/editor/build-style/style.css";
-@import "~gutenberg/packages/block-library/build-style/style.css";
-@import "~gutenberg/packages/block-library/build-style/editor.css";
-@import "~gutenberg/packages/block-library/build-style/theme.css";
-@import "~gutenberg/packages/edit-post/build-style/style.css";
-@import "~gutenberg/packages/format-library/build-style/style.css";
-@import "~gutenberg/packages/list-reusable-blocks/build-style/style.css";
-@import "~gutenberg/packages/interface/build-style/style.css";
+@import "../../../gutenberg/packages/components/build-style/style.css";
+@import "../../../gutenberg/packages/block-editor/build-style/style.css";
+@import "../../../gutenberg/packages/nux/build-style/style.css";
+@import "../../../gutenberg/packages/editor/build-style/style.css";
+@import "../../../gutenberg/packages/block-library/build-style/style.css";
+@import "../../../gutenberg/packages/block-library/build-style/editor.css";
+@import "../../../gutenberg/packages/block-library/build-style/theme.css";
+@import "../../../gutenberg/packages/edit-post/build-style/style.css";
+@import "../../../gutenberg/packages/format-library/build-style/style.css";
+@import "../../../gutenberg/packages/list-reusable-blocks/build-style/style.css";
+@import "../../../gutenberg/packages/interface/build-style/style.css";
 
 /* Sails custom styles */
 @import "sails_gutenberg";
