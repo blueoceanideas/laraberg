@@ -38,10 +38,11 @@ jobs:
 #     - name: List Files
 #       run: |
 #         ls
-    - run: cd laraberg
-    - run: npm install
-    - run: npm link gutenberg
-    - run: npm run build
+    - run: |
+        cd laraberg
+        npm install
+        npm link gutenberg
+        npm run build
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v3
       with:
