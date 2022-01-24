@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [14.x]
@@ -30,14 +30,6 @@ jobs:
         git clone "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY" laraberg
         cd laraberg
         git checkout -f "$GITHUB_SHA"
-#     - name: Use Node.js ${{ matrix.node-version }}
-#       uses: actions/setup-node@v2
-#       with:
-#         node-version: ${{ matrix.node-version }}
-#         cache-dependency-path: 'laraberg'
-#     - name: List Files
-#       run: |
-#         ls
     - run: |
         cd laraberg
         npm install
