@@ -1,0 +1,38 @@
+name: Upgrade Gutenberg
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 * * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/checkout@v2
+      with:
+        name: WordPress/gutenberg
+        ref: refs/heads/trunk
+        path: 'gutenberg'
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: npm --prefix gutenberg install
+    - run: npm --prefix gutenberg run build
+    - run: npm --prefix gutenberg link
+    - run: npm link gutenberg
+    - run: npm run production
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v3
+      with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: update-gutenberg
+          commit-message: Upgrade Gutenberg
+          title: Upgrade Gutenberg
+
