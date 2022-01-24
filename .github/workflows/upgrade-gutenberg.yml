@@ -12,11 +12,12 @@ jobs:
       matrix:
         node-version: [14.x]
     steps:
-    - name: Git Checkout
-      run: |
-        git clone "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY" laraberg
-        cd laraberg
-        git checkout -f "$GITHUB_SHA"
+#     - name: Git Checkout
+#       run: |
+#         git clone "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY" laraberg
+#         cd laraberg
+#         git checkout -f "$GITHUB_SHA"
+    - uses: actions/checkout@v2
     - name: Git Checkout Gutenberg
       run: |
         git clone "$GITHUB_SERVER_URL/WordPress/gutenberg" gutenberg
