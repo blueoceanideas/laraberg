@@ -38,6 +38,7 @@ jobs:
 #     - name: List Files
 #       run: |
 #         ls
+    - run: cd laraberg
     - run: npm install
     - run: npm link gutenberg
     - run: npm run build
