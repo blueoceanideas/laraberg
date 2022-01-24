@@ -51,4 +51,5 @@ jobs:
           commit-message: Upgrade Gutenberg
           title: Upgrade Gutenberg
           path: laraberg
+          base: updates
 
