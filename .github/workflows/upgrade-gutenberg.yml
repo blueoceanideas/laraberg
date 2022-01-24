@@ -16,7 +16,6 @@ jobs:
     - uses: actions/checkout@v2
       with:
         name: WordPress/gutenberg
-        ref: trunk
         path: 'gutenberg'
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
