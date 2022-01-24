@@ -19,16 +19,16 @@ jobs:
         git checkout -f "$GITHUB_SHA"
     - name: Git Checkout Gutenberg
       run: |
-        git clone "$GITHUB_SERVER_URL/WordPress/gutenberg" ../gutenberg
+        git clone "$GITHUB_SERVER_URL/WordPress/gutenberg" gutenberg
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-        cache-dependency-path: '../gutenberg'
-    - run: npm --prefix '../gutenberg' install
-    - run: npm --prefix '../gutenberg' run build
-    - run: npm --prefix '../gutenberg' link
+        cache-dependency-path: 'gutenberg'
+    - run: npm --prefix './gutenberg' install
+    - run: npm --prefix './gutenberg' run build
+    - run: npm --prefix './gutenberg' link
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
       with:
