@@ -22,9 +22,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm --prefix gutenberg install
-    - run: npm --prefix gutenberg run build
-    - run: npm --prefix gutenberg link
+    - run: npm --prefix '/gutenberg' install
+    - run: npm --prefix '/gutenberg' run build
+    - run: npm --prefix '/gutenberg' link
     - run: npm link gutenberg
     - run: npm run production
     - name: Create Pull Request
