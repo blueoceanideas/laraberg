@@ -12,7 +12,6 @@ jobs:
       matrix:
         node-version: [14.x]
     steps:
-    - uses: actions/checkout@v2
     - name: Git Checkout Gutenberg
       run: |
         git clone "$GITHUB_SERVER_URL/WordPress/gutenberg" gutenberg
