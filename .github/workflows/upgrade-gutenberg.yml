@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: ['14']
+        node-version: ['12']
     steps:
     - name: Git Checkout Gutenberg
       run: |
@@ -32,7 +32,6 @@ jobs:
         git checkout -f "$GITHUB_SHA"
     - run: |
         cd laraberg
-        rm -f package-lock.json
         npm install
         npm link gutenberg
         npm run build
