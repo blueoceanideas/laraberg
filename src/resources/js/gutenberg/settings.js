@@ -55,6 +55,7 @@ export const editorSettings = {
       __unstableType: 'theme'
     }
   ],
+  defaultEditorStyles: [],
 }
 
 // Post properties to override
