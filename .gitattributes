@@ -1,1 +1,11 @@
-public/* linguist-generated=true
+/public/*           linguist-generated=true
+/lib                export-ignore
+/tests              export-ignore
+/.gitattributes     export-ignore
+/.github            export-ignore
+/.gitignore         export-ignore
+/.babelrc           export-ignore
+/.eslintrc.js       export-ignore
+/phpunit.xml        export-ignore
+/postcss.config.js  export-ignore
+/webpack.config.js  export-ignore
