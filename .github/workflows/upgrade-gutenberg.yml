@@ -22,7 +22,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
         cache-dependency-path: 'gutenberg'
-    - run: npm --prefix './gutenberg' install ci
+    - run: npm --prefix './gutenberg' install
     - run: npm --prefix './gutenberg' run build
     - run: npm --prefix './gutenberg' link
     - name: Git Checkout
