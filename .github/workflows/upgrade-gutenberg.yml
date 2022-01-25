@@ -33,7 +33,7 @@ jobs:
     - run: |
         cd laraberg
         rm -rf package-lock.json
-        npm ci
+        npm install
         npm link gutenberg
         npm run build
     - name: Create Pull Request
