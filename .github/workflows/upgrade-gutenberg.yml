@@ -32,8 +32,7 @@ jobs:
         git checkout -f "$GITHUB_SHA"
     - run: |
         cd laraberg
-        rm -rf package-lock.json
-        npm install
+        npm install --no-package-lock
         npm link gutenberg
         npm run build
     - name: Create Pull Request
