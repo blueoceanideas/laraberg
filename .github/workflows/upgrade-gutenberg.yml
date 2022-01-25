@@ -1,7 +1,10 @@
 name: Upgrade Gutenberg
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - 'updates'
+#  workflow_dispatch:
 #   schedule:
 #     - cron: "0 * * * *"
 
