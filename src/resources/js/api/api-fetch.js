@@ -63,6 +63,11 @@ const requests = {
         regex: /\/wp\/v2\/media/g,
         run: optionsMedia
     },
+    getPages: {
+        method: 'GET',
+        regex: /\/wp\/v2\/pages/g,
+        run: () => [],
+    },
     getPage: {
         method: 'GET',
         regex: /\/wp\/v2\/pages\/(\d*)($|[?].*)/g,
