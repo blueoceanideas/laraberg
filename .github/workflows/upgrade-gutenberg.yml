@@ -12,8 +12,6 @@ jobs:
       matrix:
         node-version: ['14']
     steps:
-    - name: Install build essential
-      run: sudo apt-get install -y build-essential
     - name: Git Checkout Gutenberg
       run: |
         git clone "$GITHUB_SERVER_URL/WordPress/gutenberg" gutenberg
@@ -32,11 +30,9 @@ jobs:
         git clone "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY" laraberg
         cd laraberg
         git checkout -f "$GITHUB_SHA"
-    - run: |
-        cd laraberg
-        npm install --no-package-lock
-        npm link gutenberg
-        npm run build
+    - run: npm --prefix './laraberg' install
+    - run: npm --prefix './laraberg' link gutenberg
+    - run: npm --prefix './laraberg' run build
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v3
       with:
