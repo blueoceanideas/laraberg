@@ -13934,6 +13934,10 @@ html :where(.wp-block-column) {
   margin-bottom: 0;
 }
 
+.block-library-comments-toolbar__popover .components-popover__content {
+  min-width: 230px;
+}
+
 .wp-block[data-align=center] > .wp-block-comments-pagination {
   justify-content: center;
 }
