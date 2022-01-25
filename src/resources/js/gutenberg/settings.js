@@ -48,7 +48,13 @@ export const editorSettings = {
   postLock: {
     isLocked: false
   },
-  autosaveInterval: 9999
+  autosaveInterval: 9999,
+  styles: [
+    {
+      css: 'body{margin:0;}',
+      __unstableType: 'theme'
+    }
+  ],
 }
 
 // Post properties to override
