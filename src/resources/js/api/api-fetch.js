@@ -134,7 +134,7 @@ const requests = {
         run: getContext
     },
     getSettings: {
-        method: 'OPTIONS',
+        method: 'GET',
         regex: /\/wp\/v2\/settings\/?(.*)/g,
         run: () => [],
     }
