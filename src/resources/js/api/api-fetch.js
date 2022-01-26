@@ -64,7 +64,7 @@ const requests = {
         run: optionsMedia
     },
     getPages: {
-        method: 'GET',
+        method: 'OPTIONS',
         regex: /\/wp\/v2\/pages/g,
         run: () => [],
     },
@@ -132,6 +132,11 @@ const requests = {
         method: 'GET',
         regex: /\/\?(.*)/g,
         run: getContext
+    },
+    getSettings: {
+        method: 'OPTIONS',
+        regex: /\/wp\/v2\/settings\/?(.*)/g,
+        run: () => [],
     }
 }
 
