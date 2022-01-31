@@ -9,7 +9,7 @@
         }
     ],
     "require": {
-        "embed/embed": "^3.3"
+        "embed/embed": "^4.4"
     },
     "require-dev": {
         "orchestra/testbench": "^3.7",
@@ -30,5 +30,4 @@
             "providers": "VanOns\\Laraberg\\LarabergServiceProvider"
         }
     }
-
 }
