@@ -873,8 +873,8 @@ input.components-combobox-control__input[type=text]:focus {
 
 .components-combobox-control__reset.components-button {
   display: flex;
-  height: 24px;
-  min-width: 24px;
+  height: 16px;
+  min-width: 16px;
   padding: 0;
 }
 
@@ -7494,16 +7494,10 @@ div.components-toolbar > div + div.has-left-divider::before {
    * Position spinner to the left of the actions.
    *
    * Compensate for:
-   *  - Input margin ($grid-unit-20)
-   *  - Border (1px)
-   *  - Vertically, for the difference in height between the input (40px)
-   *    and the spinner.
-   *  - Horizontally, adjust for the width occupied by the icon buttons,
-   *    then artificially create spacing that mimics as if the spinner
-   *    were center-padded to the same width as an icon button.
+   *  - Input padding right ($button-size)
    */
-  top: 28px;
-  right: 62px;
+  top: calc(50% - 16px / 2);
+  right: 36px;
 }
 
 .block-editor-link-control__search-item-action {
@@ -15103,11 +15097,20 @@ figure.wp-block-image:not(.wp-block) {
   opacity: 0.4;
 }
 
+.wp-block-navigation.is-vertical .is-small .components-placeholder__fieldset,
+.wp-block-navigation.is-vertical .is-medium .components-placeholder__fieldset {
+  min-height: 90px;
+}
+
+.wp-block-navigation.is-vertical .is-large .components-placeholder__fieldset {
+  min-height: 132px;
+}
+
 .wp-block-navigation-placeholder__preview,
 .wp-block-navigation-placeholder__controls {
   padding: 6px 8px;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .wp-block-navigation-placeholder__controls {
@@ -15124,18 +15127,15 @@ figure.wp-block-image:not(.wp-block) {
   display: flex;
 }
 .is-small .wp-block-navigation-placeholder__controls .wp-block-navigation-placeholder__actions__indicator,
-.is-small .wp-block-navigation-placeholder__controls .wp-block-navigation-placeholder__actions__indicator + hr,
-.is-small .wp-block-navigation-placeholder__controls .wp-block-navigation-placeholder__actions > :nth-last-child(3),
-.is-small .wp-block-navigation-placeholder__controls .wp-block-navigation-placeholder__actions > :nth-last-child(2), .is-medium .wp-block-navigation-placeholder__controls .wp-block-navigation-placeholder__actions__indicator,
-.is-medium .wp-block-navigation-placeholder__controls .wp-block-navigation-placeholder__actions__indicator + hr,
-.is-medium .wp-block-navigation-placeholder__controls .wp-block-navigation-placeholder__actions > :nth-last-child(3),
-.is-medium .wp-block-navigation-placeholder__controls .wp-block-navigation-placeholder__actions > :nth-last-child(2) {
+.is-small .wp-block-navigation-placeholder__controls .wp-block-navigation-placeholder__actions__indicator + hr, .is-medium .wp-block-navigation-placeholder__controls .wp-block-navigation-placeholder__actions__indicator,
+.is-medium .wp-block-navigation-placeholder__controls .wp-block-navigation-placeholder__actions__indicator + hr {
   display: none;
 }
-.is-small .wp-block-navigation-placeholder__controls .wp-block-navigation-placeholder__actions {
+.is-small .wp-block-navigation-placeholder__controls .wp-block-navigation-placeholder__actions, .wp-block-navigation.is-vertical .wp-block-navigation-placeholder__controls .wp-block-navigation-placeholder__actions {
   flex-direction: column;
+  align-items: flex-start;
 }
-.is-small .wp-block-navigation-placeholder__controls .wp-block-navigation-placeholder__actions hr {
+.is-small .wp-block-navigation-placeholder__controls .wp-block-navigation-placeholder__actions hr, .wp-block-navigation.is-vertical .wp-block-navigation-placeholder__controls .wp-block-navigation-placeholder__actions hr {
   display: none;
 }
 .wp-block-navigation-placeholder__controls .wp-block-navigation-placeholder__icon {
@@ -15149,7 +15149,7 @@ figure.wp-block-image:not(.wp-block) {
   align-items: center;
   justify-content: flex-start;
   line-height: 0;
-  min-height: 36px;
+  height: 36px;
   margin-left: 4px;
 }
 .wp-block-navigation-placeholder__actions__indicator svg {
@@ -15290,8 +15290,8 @@ body.editor-styles-wrapper .wp-block-navigation__responsive-container.is-menu-op
 }
 .wp-block-navigation__unsaved-changes .components-spinner {
   position: absolute;
-  top: calc(50% - 18px / 2);
-  left: calc(50% - 18px / 2);
+  top: calc(50% - 16px / 2);
+  left: calc(50% - 16px / 2);
   opacity: 0;
   animation: 0.5s linear 2s normal forwards fadein;
 }
