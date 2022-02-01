@@ -9,9 +9,12 @@ const externals = {
 
 module.exports = {
   mode: process.env.NODE_ENV,
-  entry: './src/resources/js/laraberg.js',
+  entry: {
+    laraberg: './src/resources/js/laraberg.js',
+    editor: './src/resources/js/editor.js'
+  },
   output: {
-    filename: 'laraberg.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'public/js')
   },
   devtool: 'source-map',
@@ -39,6 +42,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new MiniCssExtractPlugin({ filename: '../css/laraberg.css' })
+    new MiniCssExtractPlugin({ filename: '../css/[name].css' })
   ]
 }
