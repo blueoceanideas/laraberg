@@ -1271,6 +1271,15 @@ figure.wp-block-image:not(.wp-block) {
   position: static;
   width: 100%;
 }
+.is-editing > .wp-block-navigation__submenu-container > .block-list-appender .block-editor-button-block-appender {
+  color: #fff;
+  background: #1e1e1e;
+  padding: 0;
+  width: 24px;
+  border-radius: 2px;
+  margin-right: 0;
+  margin-left: auto;
+}
 
 .wp-block-navigation__submenu-container .block-list-appender {
   display: none;
