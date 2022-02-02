@@ -1,4 +1,3 @@
-// import { data } from '@frontkom/gutenberg-js'
 import { editorSettings } from '../gutenberg/settings'
 import { elementRendered } from './element-ready'
 import registerSidebar from '../sidebar/sidebar'
@@ -14,7 +13,6 @@ const { data } = window.wp
  */
 export default function configureEditor (options) {
   setupActions()
-  setupMedia(options)
   setupSidebar(options)
   setupSubmit(editorSettings.target)
   disableWPBlocks()
