@@ -16,6 +16,7 @@ export default function configureEditor (options) {
   setupSidebar(options)
   setupSubmit(editorSettings.target)
   disableWPBlocks()
+  removeUploadButton()
   removeElements()
   updateContentWrapper()
   if (options.maxHeight) { setMaxHeight(options.maxHeight) }
