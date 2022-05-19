@@ -53,6 +53,8 @@ class EmbedHelper
             ],
         ]);
 
+        $url = trim($url);
+
         return $embed->get($url);
     }
 }
