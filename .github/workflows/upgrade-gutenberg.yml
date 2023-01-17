@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - 'updates'
+  workflow_dispatch: { }
 #  workflow_dispatch:
 #   schedule:
 #     - cron: "0 * * * *"
