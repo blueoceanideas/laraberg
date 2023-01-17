@@ -413,17 +413,8 @@ function matchPath(options) {
     })
 
     if (!promise) {
-        promise = new Promise((resolve, reject) => {
+        promise = new Promise((resolve) => {
             return resolve(null);
-            /*return reject(new FetchError({
-                code: 'api_handler_not_found',
-                message: 'API handler not found.',
-                data: {
-                    path: options.path,
-                    options: options,
-                    status: 404
-                }
-            }))*/
         })
     }
 
