@@ -14,9 +14,12 @@ class EmbedHelper
     {
         return preg_replace_callback('/<!-- wp:embed.*?-->\s*?<figure class="wp-block-embed.*?".*?<div class="wp-block-embed__wrapper">\s*?(.*?)\s*?<\/div>.*?<\/figure>/', function (array $matches): string {
             $embed = self::create($matches[1]);
-            $url = preg_replace('/\//', '\/', preg_quote($matches[1]));
+            $url = preg_replace('/\//', '\\/', preg_quote($matches[1]));
 
-            return preg_replace("/>\s*?{$url}\s*?</", ">{$embed->code?->html}<", $matches[0]);
+            // Lazy load iframes
+            $embedCodeWithLazyLoad = str_replace('<iframe', '<iframe loading="lazy"', $embed->code?->html);
+
+            return preg_replace("/>\s*?{$url}\s*?</", ">{$embedCodeWithLazyLoad}<", $matches[0]);
         }, $html);
     }
 
