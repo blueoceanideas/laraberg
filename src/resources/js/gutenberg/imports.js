@@ -93,4 +93,58 @@ window.wp = {
   ...imports
 }
 
+patchRichTextSplit(window.wp.richText)
+
 export default imports
+
+function patchRichTextSplit (richText) {
+  if (!richText || typeof richText.split !== 'function' || richText.split.__lbGuarded) {
+    return
+  }
+
+  const originalSplit = richText.split
+  const createEmptyValue = () => {
+    if (typeof richText.create === 'function') {
+      return richText.create({ text: '' })
+    }
+
+    return {
+      text: '',
+      formats: [],
+      replacements: [],
+      start: 0,
+      end: 0
+    }
+  }
+  const normalizeValue = (value) => {
+    if (value && typeof value === 'object' && Object.prototype.hasOwnProperty.call(value, 'text')) {
+      return value
+    }
+
+    return createEmptyValue()
+  }
+
+  const guardedSplit = (value, ...args) => {
+    if (value == null) {
+      const empty = createEmptyValue()
+      return [empty, empty]
+    }
+
+    const safeValue = normalizeValue(value)
+    const result = originalSplit(safeValue, ...args)
+
+    if (!Array.isArray(result) || result.length === 0) {
+      const empty = createEmptyValue()
+      return [safeValue, empty]
+    }
+
+    if (result.length === 1) {
+      return [result[0], createEmptyValue()]
+    }
+
+    return result
+  }
+
+  guardedSplit.__lbGuarded = true
+  richText.split = guardedSplit
+}
