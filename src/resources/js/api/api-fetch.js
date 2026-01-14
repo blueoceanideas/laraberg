@@ -259,7 +259,8 @@ async function optionsMedia() {
  * Get page from mockdata and target value
  */
 async function getPage() {
-    const content = document.getElementById(editorSettings.target).value || ''
+    const targetElement = editorSettings.targetElement || document.getElementById(editorSettings.target)
+    const content = targetElement ? targetElement.value : ''
     const date = (new Date()).toISOString()
     return {
         ...MockData.page,

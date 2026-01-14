@@ -119,12 +119,12 @@ function setupSidebar (options) {
 
 /**
  * Makes sure the textarea value gets set to the editor content on submit
- * @param {string} target the textarea to set the value of
+ * @param {string|null} target the textarea ID to set the value of
  */
 function setupSubmit (target) {
   clearSubmitFromButtons()
-  const textarea = document.getElementById(target)
-  if (textarea.form) {
+  const textarea = editorSettings.targetElement || document.getElementById(target)
+  if (textarea && textarea.form) {
     textarea.form.addEventListener('submit', event => {
       textarea.value = data.select('core/editor').getEditedPostContent()
       return true

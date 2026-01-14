@@ -35,6 +35,7 @@ setFetchHandler(apiFetch)
 // Some editor settings
 export const editorSettings = {
   target: null,
+  targetElement: null,
   alignWide: true,
   availableTemplates: [],
   allowedBlockTypes: true,
